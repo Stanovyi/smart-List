@@ -2,6 +2,7 @@
   <div>
     <h1>List</h1>
     <div class="row">
+      <Pomodoro theme="bare" style="border: none;"/>
       <div class="input-field col s6">
         <select ref="select" v-model="filter">
           <option value="" disabled selected>Choose your option</option>
@@ -9,7 +10,7 @@
           <option value="outdated">Outdated</option>
           <option value="completed">Completed</option>
         </select>
-        <label>Materialize Select</label>
+        <label>Select</label>
       </div>
     </div>
 
@@ -51,6 +52,8 @@
 </template>
 
 <script>
+import Pomodoro from 'vuemodoro'
+
 export default {
   data: () => ({
     filter: null
@@ -70,6 +73,9 @@ export default {
   },
   mounted() {
     M.FormSelect.init(this.$refs.select)
+  },
+  components: {
+    Pomodoro,
   }
 }
 </script>
@@ -84,5 +90,6 @@ export default {
     text-overflow: ellipsis;
     overflow: hidden;
   }
+
 </style>
 
